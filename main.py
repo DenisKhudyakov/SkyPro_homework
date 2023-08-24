@@ -1,4 +1,5 @@
-question_count = 0
+question_list = ['Вопрос 1: My name ___ Vova. ', 'Вопрос 2: I ___ a coder. ', 'Вопрос 3: I live ___ Moscow. ']
+correct_answer = ['Неправильно. Правильный ответ: is', 'Неправильно. Правильный ответ: am', 'Неправильно. Правильный ответ: in']
 count = 0
 score = 0
 name_user = input('Привет! Предлагаю проверить свои знания английского! \nНапиши, как тебя зовут. ')
@@ -48,29 +49,14 @@ def contest(question: str) -> bool:
       print('Ответ верный!\nВы получаете 10 баллов!')
       return True
 
+for index, i_quest in enumerate(question_list):
+  question_and_answer = input(i_quest)
+  if contest(question_and_answer):
+    count += 1
+    score += 10
+  else:
+    print(correct_answer[index])
 
-while question_count != 3:
-  question_and_answer = input('Вопрос 1: My name ___ Vova. ')
-  question_count += 1
-  if contest(question_and_answer):
-    count += 1
-    score += 10
-  else:
-    print('Неправильно. Правильный ответ: is')
-  question_and_answer = input('Вопрос 2: I ___ a coder. ')
-  question_count += 1
-  if contest(question_and_answer):
-    count += 1
-    score += 10
-  else:
-    print('Неправильно. Правильный ответ: am')
-  question_and_answer = input('Вопрос 3: I live ___ Moscow. ')
-  question_count += 1
-  if contest(question_and_answer):
-    count += 1
-    score += 10
-  else:
-    print('Неправильно. Правильный ответ: in')
 print(f"""Вот и всё, имя_пользователя!
 Вы ответили на {count} вопросов из 3 верно.
 Вы заработали {score} баллов.
