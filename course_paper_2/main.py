@@ -12,12 +12,12 @@ if __name__ == '__main__':
     print(f'Программа: {word}')
     print('Программа: Чтобы закончить игру, угадайте все слова или напишите "stop"')
     print('Программа: Поехали, ваше первое слово?')
-    while user_input != 'stop' and len(user.user_words) != len(word.list_of_additional_words):
+    while user_input != 'stop' and word.count_words() != 0 and user_input != 'стоп':
         user_input = input('Пользователь: ')
         if word.is_there(user_input):
             print('Программа: верно')
             user.add_word(user_input)
-            word.count_words(user_input)
+            word.list_of_additional_words.remove(user_input)
             continue
         elif user.is_repeat(user_input):
             print('Программа: уже использовано')
