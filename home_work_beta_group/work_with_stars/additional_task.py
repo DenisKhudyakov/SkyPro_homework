@@ -28,6 +28,6 @@ def count_files_and_dirs(any_path: str, is_walk=False) -> dict:
                                 if os.path.isdir(os.path.join(any_path, f))])
     return data_dict
 
-print(count_files_and_dirs('/home/deniskhudyakov/PycharmProjects/SkyPro_homework/home_work1_beta', True))
+print(count_files_and_dirs('/', True))
 
 print(count_files_and_dirs(os.getcwd()))
